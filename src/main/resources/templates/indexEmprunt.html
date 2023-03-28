@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bibliotheque</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.6/dist/css/uikit.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.6/dist/js/uikit-icons.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <style>
+      *{
+        font-family: Poppins;
+      }
+    </style>
+
+</head>
+<body>
+<div class="uk-margin-medium">
+<a class="uk-link-text" href="/emprunt/new">Ajouter emprunt</a>
+</div>
+<div class="uk-margin-medium">
+  <div class="uk-card uk-card-default uk-card-body  ">
+    <h3 class="uk-card-title">Liste des emprunts</h3>
+    <div class="uk-card-body">
+      <table class="uk-table uk-table-divider uk-table-hover">
+        <thead>
+        <tr>
+
+          <th scope="col">Cin</th>
+          <th scope="col">Isbn</th>
+          <th scope="col">Id Exe</th>
+          <th scope="col">Date Emprunt</th>
+        </tr>
+        </thead>
+
+
+        <tbody>
+        <tr th:each="emprunt : ${emprunts}">
+            <td th:text="${emprunt.adherant.cin}">cin</td>
+            <td th:text="${emprunt.exemplaire.livre.isbn}">isbn</td>
+            <td th:text="${emprunt.exemplaire.idexp}">idexp</td>
+            <td th:text="${emprunt.id.dateemp}">dateEmp</td>
+            <td>
+                <a th:href="@{'/emprunt/delete/' + ${l.id.toString()}}">delete</a>
+                &nbsp;&nbsp;&nbsp;
+            </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>
+
+</body>
+</html>

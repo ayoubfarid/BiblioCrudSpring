@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Bibliotheque</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.6/dist/css/uikit.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.6/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.6/dist/js/uikit-icons.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <style>
+    *{
+      font-family: Poppins;
+    }
+  </style>
+
+</head>
+<body>
+<div class="uk-margin-medium">
+  <a class="uk-link-text" href="/adherant/">Lister Adherant</a>
+</div>
+
+<div class="uk-margin-medium">
+  <div class="uk-card uk-card-default uk-card-body  ">
+    <h3 class="uk-card-title">
+          Editer un Adherant
+
+    </h3>
+    <div class="uk-card-body">
+      <form action="#" th:action="@{/adherant/save}" th:object="${adherant}" method="post" >
+        <fieldset class="uk-fieldset">
+
+          <legend class="uk-legend">Form</legend>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="cinId">Cin</label>
+            <div class="uk-form-controls">
+
+                <input  class="uk-input" id="cinId" type="text"  readonly="readonly" th:field="*{cin}"
+                       placeholder="tapez cin ...">
+
+
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="nomId">Nom</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="nomId" type="text" th:field="*{nom}" name="nom"
+                     placeholder="tapez nom ...">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="prenomId">Prenom</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="prenomId" type="text"  th:field="*{prenom}" name="prenom"
+                     placeholder="tapez prenom ...">
+            </div>
+          </div>
+          <div class="uk-margin">
+
+                <button class="uk-button uk-button-primary"  name="action" value="insert" >Sauvegarder</button>
+          </div>
+
+
+        </fieldset>
+      </form>
+    </div>
+    <div class="uk-card-footer">
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
